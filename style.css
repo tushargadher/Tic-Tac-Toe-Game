@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --boxColor:blue;
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    
+    overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_wrap{
+    /* border:2px solid red; */
+    height: 42vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.gameBox {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 25vw;
+    width: 25vw;
+    border: 2px solid;
+}
+
+.grid {
+    
+    /* border: 2px solid; */
+    height: 30%;
+    width: 30%;
+}
+
+.grid input {
+    font-size: 12rem;
+    background-color:var(--boxColor);
+    border: none;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.grid input::selection {
+    background-color:var(--boxColor);
+    color: black;
+}
+
+.grid input:hover {
+    cursor: pointer;
+}
+
+.grid input:focus {
+    outline: none;
+}
+#player{
+    /* background-color:red; */
+    height: 10%;
+    width: auto;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+#winner{
+    /* background-color: rgb(242, 98, 98); */
+    color: white;
+    height: 10%;
+    width: auto;
+    font-size: 1.8rem;
+    text-align: center;
+  
+}
+.note{
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+.note span{
+    /* background-color: red; */
+    font-size: 1.5rem;
+    color: white;
+}
+.btn{
+
+    height: 7%;
+    width: 35%;
+
+}
+.btn button{
+    display: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 1.3rem;
+    height:100%;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    transition: all 0.3s;
+}
+.btn button:hover{
+ cursor: pointer;
+ transform: scale(1.1);
+}
+/* responsive */
+@media (max-width:1000px){
+    html{
+        font-size: 60%;
+    }
+    /* .container{
+        background-color: green;
+    } */
+    .main_wrap{
+        height: 80vh;
+    }
+    .gameBox{
+           height: 50vw;
+           width: 50vw;
+    }
+    
+}
+@media (max-width:600px){
+    html{
+        font-size: 50%;
+    }
+    /* .container{
+        background-color: pink;
+    } */
+    .main_wrap{
+        height: 80vh;
+        width: 80vw;
+    }
+    .gameBox{
+           height: 60vw;
+           width: 60vw;
+    }
+    .grid input{
+        font-size: 9rem;
+    }
+    #winner{
+        font-size:4rem ;
+    }
+    .btn button{
+        font-family: 2.3rem;
+    }
+}
