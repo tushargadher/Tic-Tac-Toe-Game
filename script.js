@@ -7,7 +7,7 @@ function inputdisable(){
     })
 }
 function virbateMe(){
-    navigator.vibrate(100);
+    navigator.vibrate(50);
 }
 function checkwinner() {
     console.log('Checking Winner...')
