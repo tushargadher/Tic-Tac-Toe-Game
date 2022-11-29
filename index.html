@@ -7,21 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Toa Game</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="/img/icon.png">
 </head>
 
 <body>
-    <div class="container">
-        <div class="main_wrap">
-            <div class="note">
-                <span>Player 1 = X</span>
-                <span>Player 2 = O</span>
+    <div class="frontpg">
+        <h1 class="logo">TIC TAC TOE</h1>
+      
+            <div class="menu">
+                <div class="menu_opt">
+                    <button id="newgm" class="menubtn" onclick="clickplay();">New Game</button>
+                    <button id="tutorial" class="menubtn" onclick="window.location.href='https://tushargadher.github.io/how_to_play/';"">How To Play</button>
+                    <button id="exit" class="menubtn" onclick="clickplay();">Exit</button>
+                </div>
+                <div class="newgame">
+                    <span>ENTER PLAYER NAME</span>
+                    <input type="text" placeholder="ENTER PLAYER ONE ( X )" class="input" id="ply1">
+                    <input type="text" placeholder="ENTER PLAYER TWO ( O )" class="input" id="ply2">
+                    <button id="gmstarbtn" onclick="clickplay();">Start Game</button>
+                </div>
+
             </div>
+        
+    </div>
+    <div class="container">
 
 
-            <div id="player"><span>Click On Any Box To Play</span></div>
+        <div class="gamebox_wrap">
+            <div class="note">
+                <span id="p1"><span>Loading...</span></span>
+                <span id="p2"><span>Loading...</span></span>
+            </div>
+            <!-- <div id="player"><span>Click On Any Box To Play</span></div> -->
             <div class="gameBox">
                 <div class="grid">
+                    <div class="line"></div>
                     <input type="text" value="" id="g1" class="input" readonly>
                 </div>
                 <div class="grid">
@@ -51,9 +71,10 @@
             </div>
             <div id="winner"></div>
             <div class="btn">
-                <button id ="button"onclick="window.location.reload()">Play Again</button>
+                <button id="button" onclick="window.location.reload();">Play Again</button>
             </div>
         </div>
+
     </div>
 </body>
 <script src="script.js"></script>
