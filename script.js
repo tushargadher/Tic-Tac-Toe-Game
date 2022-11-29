@@ -1,13 +1,50 @@
-//varible and const declaration
+//varible and const declaration section
 let input = document.querySelectorAll('.input');
+let wonsound = new Audio('wongameSound.wav');
+let gameoversound = new Audio('gameover.wav');
+let clicksound = new Audio('clicksound.wav');
+let tapsound = new Audio('boxtapsound.wav');
+let frontpg = document.querySelector('.frontpg');
+let player1;
+let player2;
+
 //funciton section
-function inputdisable(){
-    input.forEach((element)=>{
-        element.disabled=true;
+function setlocalply1(){
+    localStorage.setItem()
+}
+//function for player indication 
+function p1styremove(){
+    p1.style.border='none';
+}
+function p1styset(){
+    p1.style.border="3px solid white";
+}
+function p2styremove(){
+    p2.style.border='none';
+}
+function p2styset(){
+    p2.style.border="3px solid white";
+}
+
+function clickplay() {
+    clicksound.play();
+}
+function inputdisable() {
+    input.forEach((element) => {
+        element.disabled = true;
     })
 }
-function virbateMe(){
-    navigator.vibrate(50);
+function virbateMe() {
+    tapsound.play();
+    navigator.vibrate(100);
+}
+function ext() {
+    window.close();
+}
+function overtask() {
+    wonsound.play();
+    button.style.display = 'inline-block';
+    inputdisable();
 }
 function checkwinner() {
     console.log('Checking Winner...')
@@ -17,20 +54,16 @@ function checkwinner() {
         g1.style.background = 'green';
         g2.style.background = 'green';
         g3.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Winner`;
+        overtask();
     }
     else if (g4.value == 'O' && g5.value == 'O' && g6.value == 'O') {
         clearInterval(interval);
         g4.style.background = 'green';
         g5.style.background = 'green';
         g6.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
 
     else if (g7.value == 'O' && g8.value == 'O' && g9.value == 'O') {
@@ -38,10 +71,8 @@ function checkwinner() {
         g7.style.background = 'green';
         g8.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
     //if the all zero in column one & column Two & column Three
 
@@ -50,30 +81,24 @@ function checkwinner() {
         g1.style.background = 'green';
         g4.style.background = 'green';
         g7.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
     else if (g2.value == 'O' && g5.value == 'O' && g8.value == 'O') {
         clearInterval(interval);
         g2.style.background = 'green';
         g5.style.background = 'green';
         g8.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
     else if (g3.value == 'O' && g6.value == 'O' && g9.value == 'O') {
         clearInterval(interval);
         g3.style.background = 'green';
         g6.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
 
     //if all cross in first rows & second row & third Row
@@ -82,20 +107,16 @@ function checkwinner() {
         g1.style.background = 'green';
         g2.style.background = 'green';
         g3.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     else if (g4.value == 'X' && g5.value == 'X' && g6.value == 'X') {
         clearInterval(interval);
         g4.style.background = 'green';
         g5.style.background = 'green';
         g6.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
 
     else if (g7.value == 'X' && g8.value == 'X' && g9.value == 'X') {
@@ -103,10 +124,8 @@ function checkwinner() {
         g7.style.background = 'green';
         g8.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     //if the all cross in column one & column Two & column Three
     else if (g1.value == 'X' && g4.value == 'X' && g7.value == 'X') {
@@ -114,30 +133,24 @@ function checkwinner() {
         g1.style.background = 'green';
         g4.style.background = 'green';
         g7.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     else if (g2.value == 'X' && g5.value == 'X' && g8.value == 'X') {
         clearInterval(interval);
         g2.style.background = 'green';
         g5.style.background = 'green';
         g8.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     else if (g3.value == 'X' && g6.value == 'X' && g9.value == 'X') {
         clearInterval(interval);
         g3.style.background = 'green';
         g6.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
 
 
@@ -147,20 +160,16 @@ function checkwinner() {
         g1.style.background = 'green';
         g5.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
     else if (g3.value == 'O' && g5.value == 'O' && g7.value == 'O') {
         clearInterval(interval);
         g3.style.background = 'green';
         g5.style.background = 'green';
         g7.style.background = 'green';
-        winner.innerText = 'Player 2 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player2} Won 🥂 `;
+        overtask();
     }
     //if cross in cross line
     else if (g1.value == 'X' && g5.value == 'X' && g9.value == 'X') {
@@ -168,20 +177,16 @@ function checkwinner() {
         g1.style.background = 'green';
         g5.style.background = 'green';
         g9.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     else if (g3.value == 'X' && g5.value == 'X' && g7.value == 'X') {
         clearInterval(interval);
         g3.style.background = 'green';
         g5.style.background = 'green';
         g7.style.background = 'green';
-        winner.innerText = 'Player 1 Winner';
-        button.style.display = 'inline-block';
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
-        inputdisable();
+        winner.innerText = `${player1} Won 🥂 `;
+        overtask();
     }
     //if none of the player will then game over
     else if ((g1.value == 'X' || g1.value == 'O') && (g2.value == 'X' || g2.value == 'O') && (g3.value == 'X' || g3.value == 'O') && (g4.value == 'X' || g4.value == 'O') && (g5.value == 'X' || g5.value == 'O') && (g6.value == 'X' || g6.value == 'O') && (g7.value == 'X' || g7.value == 'O') && (g8.value == 'X' || g8.value == 'O') && (g9.value == 'X' || g9.value == 'O')) {
@@ -189,8 +194,12 @@ function checkwinner() {
             element.style.background = 'rgb(242, 98, 98)';
             element.disabled = true;
         })
-        player.innerHTML = `<span>Click On Any Box To Play</span>`;
+        
         winner.innerText = 'Game Over';
+        gameoversound.play();
+        setTimeout(() => {
+            gameoversound.pause();
+        }, 1100);
         button.style.display = 'inline-block';
     }
     else {
@@ -199,6 +208,35 @@ function checkwinner() {
 
 }
 
+
+//logic start here
+//when user click on newgame buttton 
+newgm.addEventListener('click', () => {
+    document.querySelector(".newgame").style.zIndex = "2";
+})
+//when user click on startgame button
+gmstarbtn.addEventListener('click', () => {
+    if (ply1.value == '' && ply2.value == '') {
+        alert("Plaese Enter Player Name")
+    }
+    else {
+        player1 = ply1.value;
+        player2 = ply2.value;
+        frontpg.style.visibility = "hidden";
+        p1.innerText = `Player 1 [X]: ${player1}`
+        p2.innerText = `Player 2 [O]: ${player2}`
+    }
+
+})
+
+//when user click on exit button
+exit.addEventListener('click', () => {
+    let conform = confirm('Do you really want to quit?');
+    console.log(conform);
+    if (conform) {
+        ext();
+    }
+})
 //if the click is odd then circle and if click is even then cross
 let click = 1;
 g1.addEventListener('click', () => {
@@ -208,13 +246,16 @@ g1.addEventListener('click', () => {
             virbateMe();
             g1.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
         }
         else {
             virbateMe();
             g1.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
+            player.innerText = `${player1} Your Turn`;
         }
     }
     else {
@@ -227,13 +268,16 @@ g2.addEventListener('click', () => {
             virbateMe();
             g2.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g2.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -246,13 +290,16 @@ g3.addEventListener('click', () => {
             virbateMe();
             g3.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g3.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -265,13 +312,16 @@ g4.addEventListener('click', () => {
             virbateMe();
             g4.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g4.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -284,13 +334,16 @@ g5.addEventListener('click', () => {
             virbateMe();
             g5.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g5.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -303,13 +356,16 @@ g6.addEventListener('click', () => {
             virbateMe();
             g6.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g6.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -323,13 +379,16 @@ g7.addEventListener('click', () => {
             virbateMe();
             g7.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g7.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -342,13 +401,16 @@ g8.addEventListener('click', () => {
             virbateMe();
             g8.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g8.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -362,13 +424,16 @@ g9.addEventListener('click', () => {
             virbateMe();
             g9.value = 'X';
             click += 1;
-            player.innerText = `Player 2 Your Turn`;
+            p1styremove();
+            p2styset();
+            
         }
         else {
             virbateMe();
             g9.value = 'O';
             click += 1;
-            player.innerText = `Player 1 Your Turn`;
+            p2styremove();
+            p1styset();
         }
     }
     else {
@@ -377,5 +442,5 @@ g9.addEventListener('click', () => {
 })
 
 
-//checking every time who is winner
+//checking the winner
 const interval = setInterval(checkwinner, 100);
